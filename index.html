@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>buat Lia</title>
+    <style>
+        body {
+            display: flex;
+            background-color: black;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        
+        .intro {
+            display: flex;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            flex-wrap: wrap;
+            flex-direction: column;
+            z-index: 10;
+            background-color: black;
+        }
+        
+        .lovebiru {
+            display: flex;
+            width: 24px;
+            height: 24px;
+            animation: lovebiru 4s ease;
+        }
+        
+        @keyframes lovebiru {
+            25%,
+            75% {
+                transform: scale(0.7);
+                opacity: 70%;
+            }
+            0%,
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        .buatlia {
+            display: flex;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            margin-top: 8px;
+            color: #4682b4;
+            letter-spacing: 0.4px;
+        }
+        
+        .masuk {
+            display: flex;
+            position: absolute;
+            z-index: 9;
+            background-color: rgb(39, 39, 39, 0.8);
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .kotakmasuk {
+            display: flex;
+            width: 250px;
+            height: 160px;
+            border-radius: 6px;
+            background-color: black;
+            border: 0px none;
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .namakamu {
+            display: flex;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            color: white;
+            margin-block: 5px;
+        }
+        
+        .nama {
+            display: flex;
+            width: 204px;
+            height: 30px;
+            border-radius: 4px;
+            background-color: transparent;
+            border: #4682b4 1px solid;
+            color: #4682b4;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            margin-block: 5px;
+        }
+        
+        .submit {
+            display: block;
+            width: 210px;
+            height: 30px;
+            border-radius: 4px;
+            background-color: #4682b4;
+            border: 0px none;
+            color: white;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            margin-block: 5px;
+            opacity: 60%;
+        }
+        
+        .submithover:hover {
+            cursor: pointer;
+            background-color: #2272c2;
+        }
+        
+        .maaf {
+            display: none;
+            font-size: 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 100;
+            color: red;
+        }
+        
+        .konten {
+            display: flex;
+            flex: none;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 100vh;
+        }
+        
+        .background {
+            display: flex;
+            width: auto;
+            height: 100vh;
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .jendela {
+            display: flex;
+            width: auto;
+            height: 100vh;
+            position: absolute;
+            z-index: 2;
+        }
+        
+        .pot {
+            display: flex;
+            width: auto;
+            height: 75px;
+            position: absolute;
+            z-index: 3;
+            top: 470px;
+            right: 548px;
+        }
+        
+        .bunga {
+            display: flex;
+            width: auto;
+            height: 0px;
+            position: absolute;
+            z-index: 4;
+            top: 357px;
+            right: 540px;
+            transition: height 5s;
+        }
+        
+        @keyframes muncul {
+            0% {
+                transform: translateY(130px) translateX(-50px);
+            }
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+        }
+        
+        .kertas {
+            display: flex;
+            width: auto;
+            height: 105px;
+            position: absolute;
+            z-index: 3;
+            top: 385px;
+            right: 698px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="intro" id="intro">
+        <img class="lovebiru" id="lovebiru" src="lovebiru.png">
+        <h1 class="buatlia" id="buatlia">buat lia</h1>
+    </div>
+    <div class="masuk" id="masuk">
+        <div class="kotakmasuk" id="kotakmasuk">
+            <h1 class="namakamu" id="namakamu">nama kamu?</h1>
+            <input type="text" id="nama" class="nama" placeholder="nama lengkap . .">
+            <input type="submit" id="submit" class="submit" value="submit" onclick="masuklaman()">
+        </div>
+    </div>
+    <div class="konten" id="konten">
+        <img class="background" id="background">
+        <img class="jendela" id="jendela" src="jendela.png">
+        <img class="pot" id="pot" src="pot.png">
+        <img class="bunga" id="bunga" src="bunga.png">
+        <img class="kertas" id="kertas">
+    </div>
+    <script>
+        setTimeout(function awal() {
+            document.getElementById("intro").style.display = "none";
+        }, 6000);
+
+        var inputnama = document.getElementById("nama");
+        var namalia = ["Penti Eprilia"];
+        var tombolsubmit = document.getElementById("submit");
+
+        function ketiknama() {
+            if (inputnama.value.trim().indexOf(namalia) != -1) {
+                tombolsubmit.style.opacity = "100%";
+                tombolsubmit.classList.add("submithover");
+            } else {
+                tombolsubmit.style.opacity = "";
+                tombolsubmit.classList.remove("submithover");
+            }
+        }
+        inputnama.addEventListener('input', ketiknama);
+
+        function masuklaman() {
+            document.getElementById('masuk').style.display = "none";
+            var bungaa = document.getElementById('bunga');
+            bungaa.style.height = '130px';
+            bungaa.style.animation = 'muncul 5s ease';
+        }
+
+        function langit() {
+            const date = new Date;
+            const jam = date.getHours();
+            var backs = document.getElementById("background");
+            var ucapan = document.getElementById("kertas");
+            if (jam >= 3 && jam < 4) {
+                backs.src = '0304.png';
+                ucapan.src = 'tidur.png';
+            } else if (jam >= 4 && jam < 5) {
+                backs.src = '0405.png';
+                ucapan.src = 'pagi.png';
+            } else if (jam >= 5 && jam < 6) {
+                backs.src = '0506.png';
+                ucapan.src = 'pagi.png';
+            } else if (jam >= 6 && jam < 7) {
+                backs.src = '0607.png';
+                ucapan.src = 'pagi.png';
+            } else if (jam >= 7 && jam < 8) {
+                backs.src = '0708.png';
+                ucapan.src = 'semangat.png';
+            } else if (jam >= 8 && jam < 11) {
+                backs.src = '0811.png';
+                ucapan.src = 'semangat.png';
+            } else if (jam >= 11 && jam < 15) {
+                backs.src = '1115.png';
+                ucapan.src = 'semangat.png';
+            } else if (jam >= 15 && jam < 16) {
+                backs.src = '1516.png';
+                ucapan.src = 'kosong.png';
+            } else if (jam >= 16 && jam < 17) {
+                backs.src = '1617.png';
+                ucapan.src = 'lagiapa.png';
+            } else if (jam >= 17 && jam < 18) {
+                backs.src = '1718.png';
+                ucapan.src = 'senja.png';
+            } else if (jam >= 18 && jam < 19) {
+                backs.src = '1819.png';
+                ucapan.src = 'maghrib.png';
+            } else if (jam >= 19 && jam < 20) {
+                backs.src = '1920.png';
+                ucapan.src = 'isya.png';
+            } else if (jam >= 20 && jam < 21) {
+                backs.src = '2021.png';
+                ucapan.src = 'isya.png';
+            } else if (jam >= 21 && jam < 22) {
+                backs.src = '2103.png';
+                ucapan.src = 'sebelumtidur.png';
+            } else {
+                backs.src = '2103.png';
+                ucapan.src = 'tidur.png';
+            }
+        }
+        setInterval(langit, 1000);
+    </script>
+</body>
+
+</html>
